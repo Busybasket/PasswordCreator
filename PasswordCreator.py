@@ -31,9 +31,12 @@ while HomeScreen == 0:
             elif cevap3 == "a":
                 Dx = 1
     elif cevap1 == "2":
-        with open("passwords.txt","r") as dosya:
-            for satir in dosya:
-                print(satir)    
+        try: 
+            with open("passwords.txt","r") as dosya:
+                for satir in dosya:
+                    print(satir)
+        except:
+            print("Dosya açılırken bir hata oluştu dosya yok veya okunamaz durumda.")
         cevap4 = input("Çıkmak için x: \nİşlemlere devam etmek için a:")
         if cevap4 == "x":
             print("Çıkış yapılıyor")
