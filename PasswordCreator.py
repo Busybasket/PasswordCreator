@@ -2,16 +2,15 @@ import random
 
 HomeScreen = 0
 while HomeScreen == 0:
-    cevap1 = input("İşlemler: \n1.Şifre Oluştur\n2.Sifrelerime bak\n")
+    cevap1 = input("Transactions: \n1.Password Create\n2.Check your passwords\n")
     if cevap1 == "1":
         Dx = 0
         while Dx == 0:
-            cevap2 = input("Şifrenizin Başlığı: ")
+            cevap2 = input("Your Password Title: ")
             dosya = open("passwords.txt","a",encoding="utf-8")
             pLetters = []
             password = input("Password: ")
-            pLength = len(password)
-            for i in range(0,pLength):
+            for i in range(0,len(password)):
                 pLetters.append(password[i])
             random.shuffle(pLetters)
             i = 0
@@ -20,12 +19,12 @@ while HomeScreen == 0:
                 newPassword = fLetter + pLetters[i+1]
                 i = i + 1
                 fLetter = newPassword
-            print("Yeni şifre: "+fLetter)
+            print("New Password: "+fLetter)
             dosya.write(cevap2+": "+fLetter+"\n")
             dosya.close()
-            cevap3 = input("Çıkmak için x: \nİşlemlere devam etmek için a:")
+            cevap3 = input("'x' to exit: \nTo continue operations 'a':")
             if cevap3 == "x":
-                print("Çıkış yapılıyor")
+                print("exit is in progress")
                 Dx = 1
                 HomeScreen = 1
             elif cevap3 == "a":
@@ -36,10 +35,10 @@ while HomeScreen == 0:
                 for satir in dosya:
                     print(satir)
         except:
-            print("Dosya açılırken bir hata oluştu dosya yok veya okunamaz durumda.")
-        cevap4 = input("Çıkmak için x: \nİşlemlere devam etmek için a:")
+            print("An error occurred while opening the file. The file does not exist or is unreadable.")
+        cevap4 = input("'x' to exit: \nto continue operations 'a'")
         if cevap4 == "x":
-            print("Çıkış yapılıyor")
+            print("exit is in progress")
             Dx = 1
             HomeScreen = 1
         elif cevap4 == "a":
