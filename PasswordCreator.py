@@ -10,8 +10,7 @@ while HomeScreen == 0:
             dosya = open("passwords.txt","a",encoding="utf-8")
             pLetters = []
             password = input("Password: ")
-            pLength = len(password)
-            for i in range(0,pLength):
+            for i in range(0,len(password)):
                 pLetters.append(password[i])
             random.shuffle(pLetters)
             i = 0
